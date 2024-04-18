@@ -12,7 +12,6 @@ alias lla="ls -la"
 alias lt="ls --tree"
 
 
-
 # Handy change dir shortcuts
 abbr .. 'cd ..'
 abbr ... 'cd ../..'
@@ -22,10 +21,23 @@ abbr .5 'cd ../../../../..'
 
 # Hyprconfig
 abbr nvimhypr 'nvim ~/Hyprdots/'
-abbr rescon '~/Hyprdots/Scripts/install.sh -r'
-abbr delback 'rm -rf ~/.config/cfg_backups/'
+alias cphypr="replace_config_folders"
 
+# move user configs
 
+function replace_config_folders
+    set -l config_folders nvim hypr waybar fish kitty
+
+    for folder in $config_folders
+        if test -d ~/.config/$folder
+            echo "Copying $folder..."
+            cp -r ~/Hyprdots/Configs/.config/$folder ~/.config/$folder
+            echo "Done."
+        else
+            echo "Folder $folder not found in ~/.config/"
+        end
+    end
+end
 
 # Always mkdir a path (this doesn't inhibit functionality to make a single dir)
 abbr mkdir 'mkdir -p'
