@@ -11,12 +11,21 @@ alias la="ls -a"
 alias lla="ls -la"
 alias lt="ls --tree"
 
+
+
 # Handy change dir shortcuts
 abbr .. 'cd ..'
 abbr ... 'cd ../..'
 abbr .3 'cd ../../..'
 abbr .4 'cd ../../../..'
 abbr .5 'cd ../../../../..'
+
+# Hyprconfig
+abbr nvimhypr 'nvim ~/Hyprdots/'
+abbr rescon '~/Hyprdots/Scripts/install.sh -r'
+abbr delback 'rm -rf ~/.config/cfg_backups/'
+
+
 
 # Always mkdir a path (this doesn't inhibit functionality to make a single dir)
 abbr mkdir 'mkdir -p'
